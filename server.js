@@ -1,4 +1,4 @@
-// dependencies 
+// dependencies
 
 const express = require('express')
 const app = express()
@@ -14,7 +14,7 @@ require('dotenv').config()
 
 
 
-//port 
+//port
 const PORT = process.env.PORT || 3003
 
 //database
@@ -22,10 +22,11 @@ const PROJECT3_DB = process.env.PROJECT3_DB
 
 
 
-//middleware 
+//middleware
 
 app.use(express.json())
 app.use(cors())
+app.use('/movies', movieControllers)
 
 
 
