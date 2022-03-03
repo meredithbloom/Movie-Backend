@@ -1,12 +1,9 @@
 {
   "name": "movie-backend",
-  "engines" : {
-    "node": "16.13.1"
-  },
-  "version": "1.0.0",
   "engines": {
     "node": "16.13.1"
   },
+  "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {

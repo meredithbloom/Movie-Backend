@@ -26,7 +26,7 @@ const PROJECT3_DB = process.env.PROJECT3_DB
 
 app.use(express.json())
 app.use(cors())
-app.use('/movies', movieControllers)
+// app.use('/movies', movieControllers)
 
 
 
