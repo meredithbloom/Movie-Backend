@@ -12,6 +12,8 @@ require('dotenv').config()
 
 //models & controllers
 
+const Users = require('./models/user')
+const userController = require('./controllers/user-controller.js')
 
 
 //port
@@ -26,9 +28,7 @@ const PROJECT3_DB = process.env.PROJECT3_DB
 
 app.use(express.json())
 app.use(cors())
-// app.use('/movies', movieControllers)
-
-
+app.use('/users', userController)
 
 
 
