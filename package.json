@@ -1,0 +1,31 @@
+{
+  "name": "movie-backend",
+  "engines": {
+    "node": "16.13.1"
+  },
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start":"node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Heather-Mielke/Movie-Backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Heather-Mielke/Movie-Backend/issues"
+  },
+  "homepage": "https://github.com/Heather-Mielke/Movie-Backend#readme",
+  "dependencies": {
+    "axios": "^0.26.0",
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "express-session": "^1.17.2",
+    "mongoose": "^6.2.4"
+  }
+}
