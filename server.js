@@ -7,13 +7,11 @@ const db = mongoose.connection
 const cors = require('cors')
 const bcrypt = require('bcrypt')
 const session = require('express-session')
-const axios = require('axios')
 require('dotenv').config()
 const SECRET = process.env.SECRET
 
 //models & controllers
 
-const Users = require('./models/user')
 const userController = require('./controllers/user-controller.js')
 
 const Movies = require('./models/movie')
@@ -25,6 +23,7 @@ const PORT = process.env.PORT || 3003
 //database
 const PROJECT3_DB = process.env.PROJECT3_DB
 
+mongoose.connect(PROJECT3_DB, {useNewUrlParser:true})
 
 //middleware
 
@@ -44,10 +43,6 @@ app.use(
 //routes
 
 // homepage
-
-
-
-
 
 
 //connect to mongo and fix depreciation warnings from mongoose
