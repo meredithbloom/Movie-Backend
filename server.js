@@ -12,7 +12,7 @@ require('dotenv').config()
 //models & controllers
 
 const userController = require('./controllers/user-controller.js')
-const movieController = require('./controllers/movies.js')
+const movieController = require('./controllers/movie.js')
 
 //port
 const PORT = process.env.PORT || 3003

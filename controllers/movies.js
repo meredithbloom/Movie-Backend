@@ -19,11 +19,11 @@ movies.post('/', (req, res) => {
 })
 
 //movie seed route
-movies.get('/seed', (req, res) => {
-  Movies.create(movieSeed, (err, resetMovies) => {
-    res.json(resetMovies)
-  })
-})
+// movies.get('/seed', (req, res) => {
+//   Movies.create(movieSeed, (err, resetMovies) => {
+//     res.json(resetMovies)
+//   })
+// })
 
 
 //movie delete route (remove movie from database)
