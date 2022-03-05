@@ -16,6 +16,8 @@ const SECRET = process.env.SECRET
 const Users = require('./models/user')
 const userController = require('./controllers/user-controller.js')
 
+const Movies = require('./models/movie')
+const movieController = require('./controllers/movies')
 
 //port
 const PORT = process.env.PORT || 3003
@@ -29,6 +31,7 @@ const PROJECT3_DB = process.env.PROJECT3_DB
 app.use(express.json())
 app.use(cors())
 app.use('/users', userController)
+app.use('/movies', movieController)
 app.use(
   session({
     secret: SECRET,
@@ -36,6 +39,16 @@ app.use(
     saveUninitialized: false
   })
 )
+
+
+//routes
+
+// homepage
+
+
+
+
+
 
 //connect to mongo and fix depreciation warnings from mongoose
 mongoose.connect(PROJECT3_DB)
