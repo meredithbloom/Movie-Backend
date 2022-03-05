@@ -5,10 +5,7 @@ const userSchema = new Schema ({
   name: {type:String, required:true},
   email: {type:String, required:true, unique:true},
   username: {type: String, required:true, unique:true},
-  password: {type:String, required:true},
-  favorites: [String],
-  watchList: [String],
-  watched: [String]
+  password: {type:String, required:true}
 })
 
 const Users = mongoose.model('User', userSchema)

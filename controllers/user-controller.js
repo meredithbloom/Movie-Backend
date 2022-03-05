@@ -13,22 +13,18 @@ router.get('/', (req, res) => {
         res.json(foundUsers)
     })
 })
-
-
 //post route (create new user)
 router.post('/', (req, res) => {
     Users.create(req.body, (err, newUser) => {
         res.json(newUser)
     })
 })
-
 //update route (update profile)
 router.put('/:id', (req,res) => {
     Users.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedUser) => {
         res.json(updatedUser)
     })
 })
-
 //delete route - delete profile
 router.delete('/:id', (req, res) => {
     Users.findByIdAndRemove(req.params.id, (err, deletedUser) => {

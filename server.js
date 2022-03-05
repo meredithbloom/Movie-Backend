@@ -17,7 +17,7 @@ const userController = require('./controllers/user-controller.js')
 
 
 //port
-const PORT = process.env.PORT || 3003
+const PORT = process.env.PORT || 33377
 
 //database
 const PROJECT3_DB = process.env.PROJECT3_DB
