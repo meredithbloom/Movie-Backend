@@ -7,7 +7,7 @@ const Users = require('../models/user.js')
 require('dotenv').config()
 
 
-//index route - show list of all users - will not exist in final app 
+//index route - show list of all users - will not exist in final app
 router.get('/', (req, res) => {
     Users.find({}, (err, foundUsers) => {
         res.json(foundUsers)
