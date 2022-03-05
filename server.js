@@ -17,7 +17,7 @@ const userController = require('./controllers/user-controller.js')
 
 
 //port
-const PORT = process.env.PORT || 33377
+const PORT = process.env.PORT || 3003
 
 //database
 const PROJECT3_DB = process.env.PROJECT3_DB
@@ -39,7 +39,7 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 
 
 //listener
-app.listen(3003, () => {
+app.listen(PORT, () => {
   console.log('I am listening....movies... on port: ', PORT);
 })
 
