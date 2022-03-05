@@ -43,11 +43,6 @@ app.use(
 
 //routes
 
-// homepage
-
-
-
-
 
 
 //connect to mongo and fix depreciation warnings from mongoose
