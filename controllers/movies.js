@@ -6,9 +6,9 @@ const movieSeed = require('../models/movie-data.js')
 
 //movie get route (index)
 movies.get('/', (req,res) => {
-  Movies.find({}, (err, foundMovie) => {
+  Movies.find({},  (err, foundMovie) => {
     res.json(foundMovie);
-  })
+  }).limit(20)
 })
 
 //movie post route (add to database of movies)
