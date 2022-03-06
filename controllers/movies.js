@@ -3,6 +3,9 @@ const movies = express.Router()
 const Movies = require('../models/movie.js')
 const Users = require('../models/user.js')
 const movieSeed = require('../models/movie-data.js')
+const cors = require('cors')
+
+
 
 //movie get route (index)
 movies.get('/', (req,res) => {
