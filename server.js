@@ -6,13 +6,17 @@ const mongoose = require('mongoose')
 const db = mongoose.connection
 const cors = require('cors')
 const bcrypt = require('bcrypt')
-const session = require('express-session')
+const methodOverride = require('method-override')
 require('dotenv').config()
 
 //models & controllers
+app.use(express.json())
+app.use(express.urlencoded({extended:true}))
+app.use(methodOverride('_method'))
+app.use(cors())
 
 const userController = require('./controllers/user-controller.js')
-const movieController = require('./controllers/movie.js')
+const movieController = require('./controllers/movies.js')
 
 //port
 const PORT = process.env.PORT || 3003
@@ -20,7 +24,15 @@ const PORT = process.env.PORT || 3003
 //database
 const PROJECT3_DB = process.env.PROJECT3_DB
 
-mongoose.connect(PROJECT3_DB, {useNewUrlParser:true})
+
+const SECRET = process.env.SECRET
+
+mongoose.connect(PROJECT3_DB, 
+  {
+    useNewUrlParser: true, 
+    useUnifiedTopology: true
+  }
+)
 
 
 // Error / success
@@ -29,11 +41,9 @@ db.on('connected', () => console.log('mongo connected: ', PROJECT3_DB));
 db.on('disconnected', () => console.log('mongo disconnected'));
 
 //middleware
-
-app.use(express.json())
-app.use(cors())
 app.use('/users', userController)
 app.use('/movies', movieController)
+
 
 //listener
 app.listen(PORT, () => {

@@ -11,7 +11,7 @@ require('dotenv').config()
 //index route - show list of all users - will not exist in final app 
 user.get('/', (req, res) => {
     Users.find({}, (err, foundUsers) => {
-        res.json('Hello world!', foundUsers)
+        res.json(foundUsers)
     })
 })
 
