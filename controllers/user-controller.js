@@ -32,7 +32,7 @@ user.post('/createaccount', (req, res) => {
 //log in
 user.put('/login', (req,res) => {
     console.log(req.body)
-    User.findOne({username: req.body.username}, (err, foundUser) => {
+    Users.findOne({username: req.body.username}, (err, foundUser) => {
         if (err) {
             res.json('oops, there was an error, please try again')
         } else {
