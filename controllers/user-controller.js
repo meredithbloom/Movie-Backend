@@ -15,6 +15,15 @@ user.get('/', (req, res) => {
     })
 })
 
+//specific user route - for user profile page
+user.get('/:id', (req, res) => {
+    Users.findById(req.params.id, (err, foundUser) => {
+        res.json(foundUser)
+    })
+})
+
+
+
 //post route (create new user) - create an account
 user.post('/createaccount', (req, res) => {
     req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10))
@@ -32,7 +41,7 @@ user.post('/createaccount', (req, res) => {
 //log in
 user.put('/login', (req,res) => {
     console.log(req.body)
-    User.findOne({username: req.body.username}, (err, foundUser) => {
+    Users.findOne({username: req.body.username}, (err, foundUser) => {
         if (err) {
             res.json('oops, there was an error, please try again')
         } else {
