@@ -17,6 +17,7 @@ app.use(cors())
 
 const userController = require('./controllers/user-controller.js')
 const movieController = require('./controllers/movies.js')
+const favoritesController = require('./controllers/favorites.js')
 
 //port
 const PORT = process.env.PORT || 3003
@@ -27,9 +28,9 @@ const PROJECT3_DB = process.env.PROJECT3_DB
 
 const SECRET = process.env.SECRET
 
-mongoose.connect(PROJECT3_DB, 
+mongoose.connect(PROJECT3_DB,
   {
-    useNewUrlParser: true, 
+    useNewUrlParser: true,
     useUnifiedTopology: true
   }
 )
@@ -43,7 +44,7 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 //middleware
 app.use('/users', userController)
 app.use('/movies', movieController)
-
+app.use('/favorites', favoritesController)
 
 //listener
 app.listen(PORT, () => {

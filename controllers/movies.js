@@ -9,7 +9,7 @@ const cors = require('cors')
 
 //movie get route (index)
 movies.get('/', (req,res) => {
-  Movies.find({},  (err, foundMovie) => {
+  Movies.find({}, (err, foundMovie) => {
     res.json(foundMovie);
   }).limit(20)
 })
