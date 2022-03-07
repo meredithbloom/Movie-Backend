@@ -15,6 +15,15 @@ user.get('/', (req, res) => {
     })
 })
 
+//specific user route - for user profile page
+user.get('/:id', (req, res) => {
+    Users.findById(req.params.id, (err, foundUser) => {
+        res.json(foundUser)
+    })
+})
+
+
+
 //post route (create new user) - create an account
 user.post('/createaccount', (req, res) => {
     req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10))
