@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const favoritesSchema = new Schema ({
+const watchListSchema = new Schema ({
   adult: Boolean,
   backdrop_path: String,
   title: String,
@@ -20,6 +20,6 @@ const favoritesSchema = new Schema ({
 
 })
 
-const Favorites = mongoose.model('Favorite', favoritesSchema)
+const WatchLists = mongoose.model('WatchList', watchListSchema)
 
-module.exports = Favorites
+module.exports = WatchLists

@@ -18,6 +18,7 @@ app.use(cors())
 const userController = require('./controllers/user-controller.js')
 const movieController = require('./controllers/movies.js')
 const favoritesController = require('./controllers/favorites.js')
+const watchListController = require('./controllers/watchlist.js')
 
 //port
 const PORT = process.env.PORT || 3003
@@ -45,6 +46,7 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 app.use('/users', userController)
 app.use('/movies', movieController)
 app.use('/favorites', favoritesController)
+app.use('/watchlist', watchListController)
 
 //listener
 app.listen(PORT, () => {
