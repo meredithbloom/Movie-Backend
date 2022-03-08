@@ -40,17 +40,24 @@ user.get('/:id', (req, res) => {
 
 //post route (create new user) - create an account
 user.post('/createaccount', (req, res) => {
-    req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10))
-    Users.create(req.body, (err, newUser) => {
-        if (err) {
-            console.log(err)
-            res.json(err.message)
+    Users.findOne({ username: req.body.username }, (err, foundUser) => {
+        if (foundUser) {
+            res.json('sorry, that username is taken')
         } else {
-            console.log('user is created', newUser)
-            res.json(newUser)
+            req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10))
+            Users.create(req.body, (err, newUser) => {
+                if (err) {
+                    console.log(err)
+                    res.json(err)
+                } else {
+                    console.log('user is created', newUser)
+                    res.json(newUser)
+                }
+            })
         }
     })
 })
+
 
 //log in
 user.put('/login', (req,res) => {
@@ -83,10 +90,9 @@ user.put('/:id', (req,res) => {
 //delete route - delete profile
 user.delete('/:id', (req, res) => {
     Users.findByIdAndRemove(req.params.id, (err, deletedUser) => {
-        res.json(deletedUser)
+        res.json(`you successfully deleted ${deletedUser.username}`)   
     })
 })
 
 
 module.exports = user
-
