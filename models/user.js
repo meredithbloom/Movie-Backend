@@ -9,9 +9,9 @@ const userSchema = new Schema ({
   username: {type: String, required:true, unique:true},
   password: {type:String, required:true}, 
   profilePic: { type: String, default: './userimage.png' },
-  favoriteGenre: [String],
-  favorites: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Favorite' }],
-  watchList: [{type: mongoose.Schema.Types.ObjectId, ref: 'WatchList'}]
+  favoriteGenre: String,
+  streamingProviders: String,
+  favoriteMovie: String
   
 })
 
